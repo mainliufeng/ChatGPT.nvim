@@ -2,7 +2,7 @@
   "complete_code": {
     "type": "chat",
     "opts": {
-      "template": "Complete the following code written in {{lang}} by pasting the existing code and continuing it.\n\nExisting code:\n```{{filetype}}\n{{input}}\n```\n\n```{{filetype}}\n",
+      "template": "使用中文回答, Complete the following code written in {{lang}} by pasting the existing code and continuing it.\n\nExisting code:\n```{{filetype}}\n{{input}}\n```\n\n```{{filetype}}\n",
       "strategy": "replace",
       "params": {
         "model": "gpt-3.5-turbo",
@@ -15,7 +15,7 @@
   "grammar_correction": {
     "type": "chat",
     "opts": {
-      "template": "Correct this to standard {{lang}}:\n\n{{input}}",
+      "template": "使用中文回答, Correct this to standard {{lang}}:\n\n{{input}}",
       "strategy": "replace",
       "params": {
         "model": "gpt-3.5-turbo"
@@ -32,7 +32,7 @@
   "translate": {
     "type": "chat",
     "opts": {
-      "template": "Translate this into {{lang}}:\n\n{{input}}",
+      "template": "注释使用中文, Translate this into {{lang}}:\n\n{{input}}",
       "strategy": "replace",
       "params": {
         "model": "gpt-3.5-turbo",
@@ -50,7 +50,7 @@
   "keywords": {
     "type": "chat",
     "opts": {
-      "template": "Extract the main keywords from the following text.\n\n{{input}}",
+      "template": "使用中文回答, Extract the main keywords from the following text.\n\n{{input}}",
       "strategy": "replace",
       "params": {
         "model": "gpt-3.5-turbo",
@@ -62,7 +62,7 @@
   "docstring": {
     "type": "chat",
     "opts": {
-      "template": "# An elaborate, high quality docstring for the above function:\n# Writing a good docstring\n\nThis is an example of writing a really good docstring that follows a best practice for the given language. Attention is paid to detailing things like\n* parameter and return types (if applicable)\n* any errors that might be raised or returned, depending on the language\n\nI received the following code:\n\n```{{filetype}}\n{{input}}\n```\n\nThe code with a really good docstring added is below:\n\n```{{filetype}}",
+      "template": "注释使用中文, # An elaborate, high quality docstring for the above function:\n# Writing a good docstring\n\nThis is an example of writing a really good docstring that follows a best practice for the given language. Attention is paid to detailing things like\n* parameter and return types (if applicable)\n* any errors that might be raised or returned, depending on the language\n\nI received the following code:\n\n```{{filetype}}\n{{input}}\n```\n\nThe code with a really good docstring added is below:\n\n```{{filetype}}",
       "strategy": "edit",
       "params": {
         "model": "gpt-3.5-turbo",
@@ -75,7 +75,7 @@
   "add_tests": {
     "type": "chat",
     "opts": {
-      "template": "Implement tests for the following code.\n\nCode:\n```{{filetype}}\n{{input}}\n```\n\nTests:\n```{{filetype}}",
+      "template": "注释使用中文, Implement tests for the following code.\n\nCode:\n```{{filetype}}\n{{input}}\n```\n\nTests:\n```{{filetype}}",
       "strategy": "append",
       "params": {
         "model": "gpt-3.5-turbo",
@@ -88,7 +88,7 @@
   "optimize_code": {
     "type": "chat",
     "opts": {
-      "template": "Optimize the following code.\n\nCode:\n```{{filetype}}\n{{input}}\n```\n\nOptimized version:\n```{{filetype}}",
+      "template": "使用中文回答, Optimize the following code.\n\nCode:\n```{{filetype}}\n{{input}}\n```\n\nOptimized version:\n```{{filetype}}",
       "strategy": "edit",
       "params": {
         "model": "gpt-3.5-turbo",
@@ -101,7 +101,7 @@
   "summarize": {
     "type": "chat",
     "opts": {
-      "template": "Summarize the following text.\n\nText:\n\"\"\"\n{{input}}\n\"\"\"\n\nSummary:",
+      "template": "使用中文回答, Summarize the following text.\n\nText:\n\"\"\"\n{{input}}\n\"\"\"\n\nSummary:",
       "strategy": "edit",
       "params": {
         "model": "gpt-3.5-turbo"
@@ -111,7 +111,7 @@
   "fix_bugs": {
     "type": "chat",
     "opts": {
-      "template": "Fix bugs in the below code\n\nCode:\n```{{filetype}}\n{{input}}\n```\n\nFixed code:\n```{{filetype}}",
+      "template": "使用中文回答, Fix bugs in the below code\n\nCode:\n```{{filetype}}\n{{input}}\n```\n\nFixed code:\n```{{filetype}}",
       "strategy": "edit",
       "params": {
         "model": "gpt-3.5-turbo",
@@ -125,7 +125,7 @@
     "type": "chat",
     "opts": {
       "title": " Explain Code",
-      "template": "Explain the following code:\n\nCode:\n```{{filetype}}\n{{input}}\n```\n\nUse markdown format.\nHere's what the above code is doing:\n```",
+      "template": "使用中文回答, Explain the following code:\n\nCode:\n```{{filetype}}\n{{input}}\n```\n\nUse markdown format.\nHere's what the above code is doing:\n```",
       "strategy": "display",
       "params": {
         "model": "gpt-3.5-turbo",
@@ -158,7 +158,7 @@
         "messages": [
           {
             "role": "system",
-            "content": "\nYou must identify any readability issues in the code snippet.\nSome readability issues to consider:\n- Unclear naming\n- Unclear purpose\n- Redundant or obvious comments\n- Lack of comments\n- Long or complex one liners\n- Too much nesting\n- Long variable names\n- Inconsistent naming and code style.\n- Code repetition\nYou may identify additional problems. The user submits a small section of code from a larger file.\nOnly list lines with readability issues, in the format <line_num>|<issue and proposed solution>\nYour commentary must fit on a single line\nDo not use the range of lines but just single line number\nIf there's no issues with code respond with only: <OK>\n"
+            "content": "注释使用中文, \nYou must identify any readability issues in the code snippet.\nSome readability issues to consider:\n- Unclear naming\n- Unclear purpose\n- Redundant or obvious comments\n- Lack of comments\n- Long or complex one liners\n- Too much nesting\n- Long variable names\n- Inconsistent naming and code style.\n- Code repetition\nYou may identify additional problems. The user submits a small section of code from a larger file.\nOnly list lines with readability issues, in the format <line_num>|<issue and proposed solution>\nYour commentary must fit on a single line\nDo not use the range of lines but just single line number\nIf there's no issues with code respond with only: <OK>\n"
           },
           {
             "role": "user",
